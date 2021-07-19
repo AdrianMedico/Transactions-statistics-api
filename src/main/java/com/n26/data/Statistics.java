@@ -31,7 +31,7 @@ public class Statistics {
     if (max.compareTo(amount) < 0) {
       max = amount.setScale(SCALE, RoundingMode.HALF_UP);
     }
-    if (min.compareTo(amount) > 0 || count.get() == 1) {
+    if (min.compareTo(amount) > 0) {
       min = amount.setScale(SCALE, RoundingMode.HALF_UP);
     }
   }

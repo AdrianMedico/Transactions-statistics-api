@@ -5,6 +5,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import com.n26.data.Statistics;
 import com.n26.data.Transaction;
 import com.n26.service.StatisticService;
+import java.time.Instant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +33,7 @@ public class StatisticsController {
   @GetMapping(path = "/statistics", produces = {APPLICATION_JSON_VALUE})
   @ResponseBody
   public ResponseEntity<Statistics> getStatisticsForLast60Seconds() {
-    return ResponseEntity.ok(statisticService.geTransactionStatistics());
+    return ResponseEntity.ok(statisticService.getTransactionStatistics(Instant.now()));
   }
 
   @DeleteMapping(path = "/transactions")
